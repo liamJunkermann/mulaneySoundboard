@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -40,10 +40,10 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-AudioCache audioCache;
-AudioPlayer audioPlayer;
+AudioPlayer audioPlayer = AudioPlayer();
+AudioCache audioCache = AudioCache(fixedPlayer: audioPlayer);
 
-final List _quotes = MulaneyQuotes().quotes;
+final List<String> _quotes = MulaneyQuotes().quotes;
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
